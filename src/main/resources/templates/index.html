@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <script type="text/javascript" src="../static/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        function getData(reqUrl){
+            $.ajax({
+                type:"GET",
+                url:reqUrl,
+                success:function(resultData){
+                    console.log("result:"+JSON.stringify(resultData));
+                }
+            });
+        }
+
+        $(function(){
+
+            getData("http://localhost:8080/collaborator/types");
+        });
+
+
+    </script>
+</head>
+<body>
+    <h1>Hello !</h1>
+    <p>Welcome to <span th:text="${appName}">Our App</span></p>
+</body>
+</html>
